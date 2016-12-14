@@ -1,0 +1,31 @@
+﻿
+<div class="jumbotron">
+    <h2>Capita Lottery Ticket Generator</h2> 
+    <p class="lead">Angularjs App Consumes ASP.NET WebAPI </p>
+</div>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/capita-lottery.js"></script>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Ticket Generator User Interface</h4>
+        <div ng-app="capitaLotteryApp" ng-controller="capitaLotteryController">
+            <form name="generateLotteryNumbers" action="#">
+                Enter number of lottery number sets to generate: <br />
+                <input type="text" ng-model="numberSetCount" ng-required="true" min="1">
+                <input type="button" ng-click="GenerateLotteryTicket()" value="Generate Lottery Ticket">
+                <br />
+                <label>TicketReference: </label>{{CapitaLotteryTicket.TicketReference}}<br />
+                <div ng-repeat="set in CapitaLotteryTicket.NumberSet" class="row">
+                    <ol style="border:dotted">
+                        <li ng-repeat="number in set" class="" style="display:inline">
+                            <label>{{number}}</label>
+                        </li>
+                    </ol>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
